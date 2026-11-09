@@ -1,0 +1,424 @@
+/* Variabler */
+html {
+  --color-page: #c94f4f;
+  --color-surface: rgb(0, 0, 0);
+  --color-text: white;
+  --color-muted: #c4cf00;
+  --color-border: #c4cf00;
+  --space-05: 0.5rem;
+  --space-1: 1rem;
+  --space-2: 2rem;
+  --space-3: 3rem;
+
+  background: var(--color-page);
+  color: var(--color-text);
+}
+
+/* Globalt layout */
+body {
+  background-image: url(./imgs/baggrundevent.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: minmax(1rlh, 1fr) minmax(0, 75rem) minmax(1rlh, 1fr);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+/* Gør at alt indhold i main som standard bliver centreret */
+main {
+  display: grid;
+  grid-template-columns: inherit;
+  grid-column: 1 / -1;
+  align-content: start;
+  text-align: center; /* Centrerer al tekst i main */
+}
+
+.hero,
+.event,
+.artists {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.event p,
+.svg-intro p,
+.error-page p {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+}
+
+/******forside tekst********/
+.hero {
+  font-size: large;
+  font-weight: bolder;
+}
+/* Gør event-teksten større og mere læsbar */
+.event p {
+  font-size: 1.2rem; /* Gør selve brødteksten større */
+  line-height: 1.6; /* Giver en god afstand mellem linjerne */
+  max-width: 700px; /* Sørger for at linjerne ikke bliver for lange at læse */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.event {
+  font-size: 1.15rem; /* Skalerer hele event-sektionen op */
+}
+
+.event h2 {
+  font-size: 2.5rem; /* Gør "EVENT"-overskriften stor og fed ligesom i Figma */
+  margin-bottom: 1rem;
+}
+
+.event-dato {
+  margin-top: 1.5rem;
+  font-weight: bold;
+  color: rgb(191, 247, 72);
+}
+
+main {
+  display: grid;
+  grid-template-columns: inherit;
+  grid-column: 1 / -1;
+  align-content: start;
+}
+
+main > * {
+  grid-column: 2;
+  padding-block: var(--space-3);
+}
+
+.svg-page {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.svg-intro {
+  display: grid;
+  gap: var(--space-1);
+  max-width: 60ch;
+}
+
+.svg-intro p {
+  color: var(--color-muted);
+}
+
+.svg-layout {
+  display: grid;
+  gap: var(--space-2);
+  align-items: start;
+  @media (width > 800px) {
+    grid-template-columns: 1fr min(40%, 36ch);
+  }
+}
+
+.form-page {
+  display: grid;
+  gap: var(--space-2);
+  @media (width > 600px) {
+    grid-template-columns: min(40%, 50ch) 1fr;
+  }
+}
+
+.form-intro {
+  display: grid;
+  gap: var(--space-1);
+  align-content: start;
+  max-width: 60ch;
+}
+
+.form-intro p {
+  color: var(--color-muted);
+}
+
+.opsamling-page {
+  display: grid;
+  gap: var(--space-2);
+  align-items: start;
+
+  @media (width > 800px) {
+    grid-template-columns: minmax(0, 44ch) minmax(20rem, 1fr);
+  }
+}
+
+.opsamling-intro {
+  display: grid;
+  gap: var(--space-1);
+  max-width: 60ch;
+}
+
+.opsamling-intro p {
+  color: var(--color-muted);
+}
+
+.error-page {
+  display: grid;
+  gap: var(--space-1);
+  max-width: 60ch;
+}
+
+.error-page p {
+  color: var(--color-muted);
+}
+
+/* Header og footer */
+.site-header,
+.site-footer {
+  grid-column: 1 / -1;
+
+  display: grid;
+  grid-template-columns: inherit;
+  background: var(--color-surface);
+}
+
+.header-content,
+.footer-content {
+  grid-column: 2;
+}
+
+.header-content {
+  min-height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.site-logo {
+  width: 100px;
+  height: auto;
+  text-decoration: none;
+}
+
+.footer-content {
+  padding-block: var(--space-1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-1);
+  color: var(--color-muted);
+}
+
+/* Navigation */
+[popover] {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.site-nav button {
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  @media (width > 600px) {
+    display: none;
+  }
+}
+
+.menu {
+  margin: 0;
+  padding: var(--space-1);
+  list-style: none;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  position-area: bottom span-;
+  @media (width > 600px) {
+    display: flex;
+    gap: var(--space-1);
+    padding: 0;
+    border: none;
+    background: none;
+    position: static;
+  }
+}
+
+.menu a {
+  display: block;
+  padding: 0.4rem 0;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 2px solid #00000000;
+}
+
+.menu a[aria-current="page"] {
+  border-bottom-color: var(--color-border);
+}
+
+/* Flader */
+.panel,
+.svg-placeholder,
+.form-placeholder,
+.opsamling-placeholder {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.panel {
+  padding: var(--space-1);
+  display: grid;
+  gap: var(--space-1);
+}
+
+.svg-placeholder,
+.opsamling-placeholder {
+  min-height: -webkit-fill-available;
+  min-height: stretch;
+}
+
+.form-placeholder {
+  min-height: -webkit-fill-available;
+  min-height: stretch;
+  padding: var(--space-1);
+}
+
+/* Details */
+.accordion {
+  display: grid;
+  gap: var(--space-05);
+}
+
+.accordion-item {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.accordion-item p {
+  padding: 0 var(--space-1) var(--space-1);
+  color: var(--color-muted);
+}
+
+/* Skjul alle stykkerne på vinylen som standard */
+/* Skjul alle 3 stykker som standard */
+#forste,
+#anden,
+#tredje {
+  display: none;
+}
+
+/* Vis stykket når JavaScript giver det klassen .active */
+#forste.active,
+#anden.active,
+#tredje.active {
+  display: block;
+}
+
+/* Knap/link */
+.button {
+  justify-self: start;
+  display: inline-block;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ARTIST CARDS */
+
+.artists {
+  text-align: center;
+  padding: 40px 20px;
+}
+.artists h2 {
+  margin-bottom: 30px;
+}
+
+.artist-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.artist-card {
+  width: 150px;
+  background: black;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.artist-card img {
+  width: 100%;
+  height: 145px;
+  object-fit: cover;
+}
+
+.artist-card h3 {
+  color: var(--color-border);
+
+  margin: 8px 0 2px;
+}
+
+.artist-card p {
+  color: var(--color-border);
+  font-size: 9px;
+  margin: 0;
+}
+
+/* POPOVER  */
+
+.artist-card::backdrop {
+  background: rgba(0, 0, 0, 0);
+}
+
+[popover] {
+  background: #111;
+  color: white;
+  border: 3px solid #c4cf00;
+  border-radius: 8px;
+  padding: 30px;
+  width: 450px;
+  max-width: calc(100% - 50px);
+  text-align: center;
+  margin: auto;
+}
+
+[popover]::backdrop {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+[popover] h2 {
+  color: var(--color-border);
+  font-size: 32px;
+}
+
+[popover] h3 {
+  color: white;
+  font-size: 14px;
+}
+
+[popover] p {
+  color: white;
+  line-height: 1.6;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  color: var(--color-border);
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+.event-dato {
+  background-color: #111;
+  width: 200px;
+}

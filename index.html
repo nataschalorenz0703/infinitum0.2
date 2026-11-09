@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventnavn</title>
+    <link rel="stylesheet" href="./starter.css">
+    <link rel="stylesheet" href="./style.css">
+
+
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-content">
+
+
+            <div class="site-logo">
+                <a href="">
+                    <img src="./imgs/logoimg.png" alt="Logo">
+                </a>
+            </div>
+
+
+            <nav class="site-nav">
+                <button popovertarget="menu">Menu</button>
+                <ul class="menu" id="menu" popover>
+                    <li><a href="./" aria-current="page">Forside</a></li>
+                    <li><a href="./svg.html">Interaktiv SVG</a></li>
+                    <li><a href="./form.html">Formular</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero">
+
+            <img src="./imgs/infinitumhero.png" alt="infinitum">
+            <div class="forside_1">
+                <p>Once a year. 24 hours. No photos. Full presence.</p>
+            </div>
+
+        </section>
+
+        <section class="event">
+            <h2>EVENT</h2>
+            <div class="forside_1">
+                <p>A one-day takeover where live tattooing meets underground techno. We're creating a sanctuary for
+                    lovers of
+                    raw aesthetics, heavy techno, and body art, featuring 4 tattoo stations and a lineup of 6 DJs,
+                    giving you the
+                    chance to immortalize the night with a unique piece of art.
+                </p>
+                <p class="event-dato">10/10/2026 - 11/10/2026 <br> 10.00 - 10.00</p>
+            </div>
+        </section>
+
+
+
+
+        <section class="artists">
+            <h2>TATTOO ARTISTS</h2>
+
+            <div class="artist-container">
+
+                <!-- ARS -->
+                <button class="artist-card" popovertarget="ars-info">
+                    <img src="imgs/arsimg.png" alt="ARS">
+                    <h3>ARS</h3>
+                    <p>OLD SCHOOL</p>
+                </button>
+
+                <!-- LAURA -->
+                <button class="artist-card" popovertarget="laura-info">
+                    <img src="./imgs/lauraimg.png" alt="Laura">
+                    <h3>LAURA</h3>
+                    <p>BLACKWORK</p>
+                </button>
+
+                <!-- NASTIA -->
+                <button class="artist-card" popovertarget="nastia-info">
+                    <img src="./imgs/nestaimg.png" alt="Nastia">
+                    <h3>NASTIA</h3>
+                    <p>NEO TRADITIONAL</p>
+                </button>
+
+                <!-- POLI -->
+                <button class="artist-card" popovertarget="poli-info">
+                    <img src="./imgs/poliimg.png" alt="Poli">
+                    <h3>POLI</h3>
+                    <p>ABSTRACT</p>
+                </button>
+
+            </div>
+        </section>
+
+
+        <!-- POPOVERS -->
+
+        <div id="ars-info" popover>
+            <button class="close-btn" popovertarget="ars-info" popovertargetaction="hide">✕</button>
+            <h2>ARS</h2>
+            <h3>OLD SCHOOL</h3>
+            <img src="./imgs/arsflash.png" alt="arsflash">
+            <p>Meet Ars, who has traveled all the way from his base in Berlin to guest at the event. Ars works primarily
+                within the
+                classic, traditional old-school style, and you can find him in the chair between 10:00 AM and 4:00 PM.
+            </p>
+        </div>
+
+        <div id="laura-info" popover>
+            <button class="close-btn" popovertarget="laura-info" popovertargetaction="hide">✕</button>
+            <h2>LAURA</h2>
+            <h3>BLACKWORK</h3>
+            <p>skriv noget fis.</p>
+        </div>
+
+        <div id="nastia-info" popover>
+            <button class="close-btn" popovertarget="nastia-info" popovertargetaction="hide">✕</button>
+            <h2>NASTIA</h2>
+            <h3>NEO TRADITIONAL</h3>
+            <p>skriv noget fis.</p>
+        </div>
+
+        <div id="poli-info" popover>
+            <button class="close-btn" popovertarget="poli-info" popovertargetaction="hide">✕</button>
+            <h2>POLI</h2>
+            <h3>ABSTRACT</h3>
+            <p>skriv noget fis.</p>
+        </div>
+
+
+        <!-- svg -->
+        <div class="svg-placeholder">
+            <svg class="vinyl" viewBox="0 0 1921 1081">
+                <use href="./vinyl.svg#baggrund"></use>
+                <use href="./vinyl.svg#forste"></use>
+                <use href="./vinyl.svg#anden"></use>
+                <use href="./vinyl.svg#tredje"></use>
+            </svg>
+        </div>
+
+        <h2>
+            TIMETABLE
+        </h2>
+        <div class="accordion">
+            <details class="accordion-item" name="accordion" data-position="forste" id="details-forste">
+                <summary>10-18</summary>
+                <div>
+                    her skal der stå noget om hvem der spiller, hvor de er fra og et eller andet finder ud af
+                </div>
+            </details>
+
+
+            <div class="accordion">
+                <details class="accordion-item" name="accordion" data-position="anden" id="details-anden">
+                    <summary>18-02</summary>
+                    <div>
+                        her skal der stå noget om hvem der spiller, hvor de er fra og et eller andet finder ud af
+                    </div>
+                </details>
+
+
+                <div class="accordion">
+                    <details class="accordion-item" name="accordion" data-position="tredje" id="details-tredje">
+                        <summary>02-10</summary>
+                        <div>
+                            her skal der stå noget om hvem der spiller, hvor de er fra og et eller andet finder ud af
+                        </div>
+
+                    </details>
+
+
+                </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>Eventnavn</p>
+            <p>Footer</p>
+        </div>
+    </footer>
+    <script src="./script.js"></script>
+</body>
+
+</html>
