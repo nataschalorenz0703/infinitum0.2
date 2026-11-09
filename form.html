@@ -31,8 +31,26 @@
         <p>Lav en formular, der sender brugeren videre til opsamlingssiden.</p>
       </header>
 
-      <form class="form-placeholder" action="./opsamling.html"></form>
-      <label for="hallo"></label>
+      <form class="form-placeholder" action="./opsamling.html">
+        <fieldset>
+          <legend>What are you coming for?</legend>
+          <label for="field-interest-1">
+            <input type="checkbox" id="field-interest-1" name="interest" value="techno">
+            Techno
+          </label>
+          <label for="field-interest-2">
+            <input type="checkbox" id="field-interest-2" name="interest" value="tattoo">
+            Tattoo
+          </label>
+          <label for="field-interest-3">
+            <input type="checkbox" id="field-interest-3" name="interest" value="both">
+            Both!
+          </label>
+        </fieldset>
+
+        <button type="submit">Send</button>
+      </form>
+
 
 
     </section>
