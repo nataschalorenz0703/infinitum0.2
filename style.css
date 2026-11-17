@@ -672,3 +672,141 @@ main > * {
     text-align: center;
   }
 }
+/* ---------- Opsamling: pass ---------- */
+.opsamling-intro .eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: rgb(191, 247, 72);
+}
+
+.opsamling-intro h1 {
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  line-height: 1;
+}
+
+.opsamling-intro .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-top: var(--space-1);
+}
+
+.opsamling-placeholder {
+  --accent: rgb(191, 247, 72);
+  --pass-bg: rgba(0, 0, 0, 0.8);
+
+  position: relative;
+  min-height: 0;
+  width: 100%;
+  max-width: 26rem;
+  margin-inline: auto;
+  padding: 1.75rem;
+  background: var(--pass-bg);
+  color: #fff;
+  text-align: left;
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  box-shadow: 0 1.5rem 3rem rgb(0 0 0 / 0.4);
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
+}
+
+.opsamling-placeholder:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.pass-top {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px dashed var(--accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+.pass-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  opacity: 0.85;
+}
+
+#pass-type {
+  margin: 0.25rem 0 0.75rem;
+  font-size: 2rem;
+  line-height: 1.1;
+  color: var(--accent);
+}
+
+.pass-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.pass-cell {
+  padding: 0.75rem;
+  border: 1px solid rgb(255 255 255 / 0.2);
+  border-radius: 6px;
+  background: rgb(255 255 255 / 0.05);
+}
+
+.pass-cell strong {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+}
+
+#pass-message {
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+.pass-barcode {
+  height: 2.5rem;
+  margin-top: 1.25rem;
+  background: repeating-linear-gradient(90deg, var(--accent) 0 2px, transparent 2px 5px, var(--accent) 5px 6px, transparent 6px 10px);
+  opacity: 0.8;
+}
+
+.opsamling-placeholder [hidden] {
+  display: none;
+}
+
+/* Variation 1: efter formål */
+.opsamling-placeholder[data-purpose="techno"] {
+  --accent: #e4ff14;
+  --pass-bg: rgba(0, 0, 0, 0.9);
+}
+
+.opsamling-placeholder[data-purpose="tattoos"] {
+  --accent: #ff9f1c;
+  --pass-bg: rgba(40, 15, 5, 0.9);
+}
+
+.opsamling-placeholder[data-purpose="both"] {
+  --accent: rgb(247, 238, 72);
+  --pass-bg: rgba(0, 0, 0, 0.8);
+}
+
+/* Variation 2: efter tattoo-stil */
+.opsamling-placeholder[data-style="black-work"] #pass-style {
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+.opsamling-placeholder[data-style="old-school"] {
+  border-style: double;
+  border-width: 4px;
+}
+
+.opsamling-placeholder[data-style="neo-traditionel"] #pass-style {
+  color: #ff6ad5;
+}
+
+.opsamling-placeholder[data-style="abstract"] .pass-barcode {
+  background: linear-gradient(90deg, #ff6ad5, #ff9f1c, rgb(191, 247, 72));
+}

@@ -33,17 +33,41 @@
   <main>
     <section class="opsamling-page">
       <div class="opsamling-intro">
-        <h1>Opsamling</h1>
-        <p>Vis brugerens valg som et pass, en invitation eller noget andet, der passer til dit event.</p>
+        <p class="eyebrow">YOUR PERSONAL PASS</p>
+        <h1>YOUR PERFECT EXPERIENCE IS READY</h1>
+        <p>Your pass is based on your answers. Want to change something? Just tailor your night again.</p>
         <div class="actions">
-          <a class="button" href="./form.html">Tilbage til formular</a>
+          <a class="button" href="./form.html">Tailor again</a>
+          <a class="button" href="./svg.html">See the DJ timetable</a>
         </div>
       </div>
 
-      <article class="opsamling-placeholder"></article>
+      <article class="opsamling-placeholder" data-purpose="both" data-style="dont-know">
+        <div class="pass-top">
+          <span>INFINITUM</span>
+          <span>10/10/26–11/10/26</span>
+        </div>
+
+        <p class="pass-label">EVENT PASS</p>
+        <h2 id="pass-type">Full experience pass</h2>
+        <p id="pass-purpose">You're here for both techno and tattoos.</p>
+
+        <div class="pass-grid">
+          <div class="pass-cell">
+            <span class="pass-label">TATTOO</span>
+            <strong id="pass-tattoo">Maybe</strong>
+          </div>
+          <div class="pass-cell">
+            <span class="pass-label">ARTIST</span>
+            <strong id="pass-style">Meet all artists</strong>
+          </div>
+        </div>
+
+        <p id="pass-message">See you at Infinitum.</p>
+        <div class="pass-barcode" aria-hidden="true"></div>
+      </article>
     </section>
   </main>
-
   <footer class="site-footer">
     <div class="footer-content">
       <p>INFINITUM</p>
