@@ -1,6 +1,6 @@
 // Interaktiv SVG-side
 const svgPlaceholder = document.querySelector(".svg-placeholder");
-// Hent knapperne/accordion-elementerne
+
 const forsteDetails = document.querySelector("#details-forste");
 const andenDetails = document.querySelector("#details-anden");
 const tredjeDetails = document.querySelector("#details-tredje");
@@ -9,14 +9,13 @@ const layerForste = document.querySelector("#forste");
 const layerAnden = document.querySelector("#anden");
 const layerTredje = document.querySelector("#tredje");
 
-// Funktion til at skjule alle lag
 function hideAllLayers() {
   if (layerForste) layerForste.classList.remove("active");
   if (layerAnden) layerAnden.classList.remove("active");
   if (layerTredje) layerTredje.classList.remove("active");
 }
 
-// Lyt efter hvornår 10-18 åbnes
+//10-18
 forsteDetails.addEventListener("toggle", () => {
   if (forsteDetails.open) {
     hideAllLayers();
@@ -24,7 +23,7 @@ forsteDetails.addEventListener("toggle", () => {
   }
 });
 
-// Lyt efter hvornår 18-02 åbnes
+// 18-02
 andenDetails.addEventListener("toggle", () => {
   if (andenDetails.open) {
     hideAllLayers();
@@ -32,14 +31,13 @@ andenDetails.addEventListener("toggle", () => {
   }
 });
 
-// Lyt efter hvornår 02-10 åbnes
+// 02-10
 tredjeDetails.addEventListener("toggle", () => {
   if (tredjeDetails.open) {
     hideAllLayers();
     layerTredje.classList.add("active");
   }
 });
-// Sørg for at første stykke vises fra start
 
 // Opsamlingsside
 const opsamlingPlaceholder = document.querySelector(".opsamling-placeholder");
