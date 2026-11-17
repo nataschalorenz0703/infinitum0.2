@@ -14,9 +14,24 @@ html {
   color: var(--color-text);
 }
 
+/* fonts*/
+
+@font-face {
+  font-family: "Anonymous Pro";
+  src: url("fonts/AnonymousPro-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Anonymous Pro";
+  src: url("fonts/AnonymousPro-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
 /* Globalt layout */
 body {
-  background-image: url(./imgs/baggrundevent.png);
+  background-image: url(./imgs/prov.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -26,6 +41,8 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: minmax(1rlh, 1fr) minmax(0, 75rem) minmax(1rlh, 1fr);
+
+  font-family: "Anonymous Pro", monospace, sans-serif;
 }
 
 h1,
@@ -34,13 +51,13 @@ h3,
 p {
   margin: 0;
 }
-/* Gør at alt indhold i main som standard bliver centreret */
+
 main {
   display: grid;
   grid-template-columns: inherit;
   grid-column: 1 / -1;
   align-content: start;
-  text-align: center; /* Centrerer al tekst i main */
+  text-align: center;
 }
 
 .hero,
@@ -59,33 +76,42 @@ main {
   margin-right: auto;
   max-width: 600px;
 }
-
+section.hero {
+  grid-column: 1 / -1;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  padding: var(--space-3) 0;
+}
 /******forside tekst********/
 .hero {
   font-size: large;
   font-weight: bolder;
 }
-/* Gør event-teksten større og mere læsbar */
+
 .event p {
-  font-size: 1.2rem; /* Gør selve brødteksten større */
-  line-height: 1.6; /* Giver en god afstand mellem linjerne */
-  max-width: 700px; /* Sørger for at linjerne ikke bliver for lange at læse */
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 700px;
 }
 
 .event {
-  font-size: 1.15rem; /* Skalerer hele event-sektionen op */
+  font-size: 1.15rem;
 }
 
-.event h2 {
-  font-size: 2.5rem; /* Gør "EVENT"-overskriften stor og fed ligesom i Figma */
+.event h1 {
+  font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
 .event-dato {
-  margin-top: 1.5rem;
-  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.5);
   color: rgb(191, 247, 72);
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+
+  margin-top: 1.5rem;
+  width: 100%;
 }
 
 main {
@@ -189,6 +215,8 @@ main > * {
 }
 
 .header-content {
+  grid-column: 1 / -1;
+  padding: 0 2rem; /* Giver lidt pæn luft ud til selve skærmkanten */
   min-height: 4rem;
   display: flex;
   justify-content: space-between;
@@ -197,7 +225,7 @@ main > * {
 }
 
 .site-logo {
-  width: 100px;
+  width: 220px;
   height: auto;
   text-decoration: none;
 }
@@ -237,7 +265,7 @@ main > * {
   position-area: bottom span-;
   @media (width > 600px) {
     display: flex;
-    gap: var(--space-1);
+    gap: 3rem;
     padding: 0;
     border: none;
     background: none;
@@ -252,24 +280,32 @@ main > * {
   text-decoration: none;
   border-bottom: 2px solid #00000000;
 }
+.menu a:hover {
+  color: rgb(192, 45, 135);
+  border-bottom-color: var(--color-border);
+}
 
 .menu a[aria-current="page"] {
   border-bottom-color: var(--color-border);
 }
 
-/* Flader */
+/* svg*********/
+
 .panel,
 .svg-placeholder,
 .form-placeholder,
 .opsamling-placeholder {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background: transparent;
+  border: none;
 }
 
 .panel {
   padding: var(--space-1);
   display: grid;
   gap: var(--space-1);
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
 }
 
 .svg-placeholder,
@@ -293,97 +329,228 @@ main > * {
 .accordion-item {
   border: 1px solid var(--color-border);
   background: var(--color-surface);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
 }
 
 .accordion-item p {
   padding: 0 var(--space-1) var(--space-1);
   color: var(--color-muted);
 }
+.accordion-item:hover {
+  border-color: rgb(191, 247, 72);
+  background: rgba(191, 247, 72, 0.1);
+}
 
-/* Skjul alle stykkerne på vinylen som standard */
-/* Skjul alle 3 stykker som standard */
+.accordion-item summary {
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.accordion-item p {
+  padding: 0 1rem 1rem 1rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+}
 #forste,
 #anden,
 #tredje {
   display: none;
 }
 
-/* Vis stykket når JavaScript giver det klassen .active */
 #forste.active,
 #anden.active,
 #tredje.active {
   display: block;
 }
 
-/* Knap/link */
+/**********form fis******/
+
+.form-images {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.form-images img {
+  width: 100%;
+  height: 280px; /* Gør dem slanke og brede */
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+/* Centrerer indholdet på form-siden */
+.form-page {
+  text-align: center;
+}
+
+.form-intro {
+  margin-bottom: 2.5rem;
+}
+
+/* Selve formularen (matcher din class="form-placeholder") */
+.form-placeholder {
+  max-width: 550px;
+  margin: 0 auto 4rem auto;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 2.5rem;
+  text-align: left;
+}
+
+/* Fjern standard-kanter fra fieldset */
+.form-placeholder fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+/* Stil på spørgsmålene (legend) */
+.form-placeholder legend {
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+  color: rgb(191, 247, 72);
+}
+
+/* Styling af dine radio-knapper og labels (div.prut) */
+.form-placeholder .prut {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-placeholder label {
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Send-knappen i bunken */
+.form-placeholder button,
+.form-placeholder input[type="submit"] {
+  display: inline-block;
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1.5rem;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.form-placeholder button:hover,
+.form-placeholder input[type="submit"]:hover {
+  background: rgba(191, 247, 72, 0.15);
+  border-color: rgb(191, 247, 72);
+  color: rgb(191, 247, 72);
+}
+
 .button {
   justify-self: start;
   display: inline-block;
-  padding: 0.5rem 0.8rem;
+  padding: 0.8rem 1.8rem;
   border: 1px solid var(--color-border);
-  background: var(--color-surface);
+  background: rgba(0, 0, 0, 0.5);
   color: inherit;
   text-decoration: none;
+  transition: all 0.25s ease-in-out;
+}
+.hero-buttons {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  margin-top: 2rem;
+  padding: 4rem;
 }
 
+.button:hover {
+  background: rgba(91, 255, 2, 0.15);
+  border-color: rgb(191, 247, 72);
+  color: rgb(212, 18, 180);
+  transform: translateY(-2px);
+}
 /* ARTIST CARDS */
 
 .artists {
   text-align: center;
   padding: 40px 20px;
 }
-.artists h2 {
+.artists h1 {
   margin-bottom: 30px;
 }
 
 .artist-container {
   display: flex;
   justify-content: center;
-  gap: 50px;
+  gap: 2rem;
   flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .artist-card {
-  width: 150px;
   background: black;
-  border: none;
-  border-radius: 4px;
-  padding: 10px;
-  cursor: pointer;
+  border-radius: 6px;
+  padding: 15px;
+  width: 220px;
   text-align: left;
+  box-sizing: border-box;
 }
 
 .artist-card img {
   width: 100%;
-  height: 145px;
+  height: 200px;
   object-fit: cover;
 }
 
 .artist-card h3 {
   color: var(--color-border);
-
-  margin: 8px 0 2px;
+  margin: 10px 0 2px;
 }
 
 .artist-card p {
   color: var(--color-border);
-  font-size: 9px;
+  font-size: 0.8rem;
   margin: 0;
 }
-
-/* POPOVER  */
 
 .artist-card::backdrop {
   background: rgba(0, 0, 0, 0);
 }
+.read-more-btn {
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 0.6rem;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--color-border);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: bold;
+  border-radius: 2px;
+}
+
+.read-more-btn:hover {
+  color: rgb(247, 72, 195);
+  transform: translateY(-2px);
+}
 
 [popover] {
-  background: #111;
-  color: white;
-  border: 3px solid #c4cf00;
+  background: #0a0909;
+  color: var(--color-muted);
   border-radius: 8px;
   padding: 30px;
-  width: 450px;
+  width: 550px;
   max-width: calc(100% - 50px);
   text-align: center;
   margin: auto;
@@ -405,7 +572,7 @@ main > * {
 
 [popover] p {
   color: white;
-  line-height: 1.6;
+  line-height: 2rem;
 }
 
 .close-btn {
@@ -418,7 +585,224 @@ main > * {
   font-size: 22px;
   cursor: pointer;
 }
-.event-dato {
-  background-color: #111;
-  width: 200px;
+
+/* Program sektion på forsiden */
+.program-section {
+  max-width: 960px;
+  margin: 4rem auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.program-section h1 {
+  margin-bottom: 2rem;
+}
+
+.program-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 2.5rem;
+  text-align: left;
+}
+
+.program-preview {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.program-preview:hover {
+  transform: scale(1.03) rotate(3deg);
+}
+
+.program-preview img {
+  width: 100%;
+  max-width: 320px;
+  display: block;
+  margin: 0 auto;
+}
+
+.program-tag {
+  font-size: 0.75rem;
+  color: rgb(191, 247, 72);
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.program-info h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.program-info p {
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.program-btn {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.program-btn:hover {
+  background: rgba(191, 247, 72, 0.15);
+  border-color: rgb(191, 247, 72);
+  color: rgb(191, 247, 72);
+}
+
+/* mobil*/
+
+@media (max-width: 700px) {
+  .program-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+/* ---------- Opsamling: pass ---------- */
+.opsamling-intro .eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: rgb(191, 247, 72);
+}
+
+.opsamling-intro h1 {
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  line-height: 1;
+}
+
+.opsamling-intro .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-top: var(--space-1);
+}
+
+.opsamling-placeholder {
+  --accent: rgb(191, 247, 72);
+  --pass-bg: rgba(0, 0, 0, 0.8);
+
+  position: relative;
+  min-height: 0;
+  width: 100%;
+  max-width: 26rem;
+  margin-inline: auto;
+  padding: 1.75rem;
+  background: var(--pass-bg);
+  color: #fff;
+  text-align: left;
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  box-shadow: 0 1.5rem 3rem rgb(0 0 0 / 0.4);
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
+}
+
+.opsamling-placeholder:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.pass-top {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px dashed var(--accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+.pass-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  opacity: 0.85;
+}
+
+#pass-type {
+  margin: 0.25rem 0 0.75rem;
+  font-size: 2rem;
+  line-height: 1.1;
+  color: var(--accent);
+}
+
+.pass-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.pass-cell {
+  padding: 0.75rem;
+  border: 1px solid rgb(255 255 255 / 0.2);
+  border-radius: 6px;
+  background: rgb(255 255 255 / 0.05);
+}
+
+.pass-cell strong {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+}
+
+#pass-message {
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+.pass-barcode {
+  height: 2.5rem;
+  margin-top: 1.25rem;
+  background: repeating-linear-gradient(90deg, var(--accent) 0 2px, transparent 2px 5px, var(--accent) 5px 6px, transparent 6px 10px);
+  opacity: 0.8;
+}
+
+.opsamling-placeholder [hidden] {
+  display: none;
+}
+
+/* Variation 1: efter formål */
+.opsamling-placeholder[data-purpose="techno"] {
+  --accent: #e4ff14;
+  --pass-bg: rgba(0, 0, 0, 0.9);
+}
+
+.opsamling-placeholder[data-purpose="tattoos"] {
+  --accent: #ff9f1c;
+  --pass-bg: rgba(40, 15, 5, 0.9);
+}
+
+.opsamling-placeholder[data-purpose="both"] {
+  --accent: rgb(247, 238, 72);
+  --pass-bg: rgba(0, 0, 0, 0.8);
+}
+
+/* Variation 2: efter tattoo-stil */
+.opsamling-placeholder[data-style="black-work"] #pass-style {
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+.opsamling-placeholder[data-style="old-school"] {
+  border-style: double;
+  border-width: 4px;
+}
+
+.opsamling-placeholder[data-style="neo-traditionel"] #pass-style {
+  color: #ff6ad5;
+}
+
+.opsamling-placeholder[data-style="abstract"] .pass-barcode {
+  background: linear-gradient(90deg, #ff6ad5, #ff9f1c, rgb(191, 247, 72));
 }
