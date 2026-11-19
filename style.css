@@ -804,9 +804,9 @@ main > * {
 }
 
 .opsamling-placeholder[data-style="neo-traditionel"] #pass-style {
-  color: #ff6ad5;
+  color: #fbfbfb;
 }
 
-.opsamling-placeholder[data-style="abstract"] .pass-barcode {
-  background: linear-gradient(90deg, #ff6ad5, #ff9f1c, rgb(191, 247, 72));
+.opsamling-placeholder[data-style="abstract"] {
+  --accent: #ff9f1c;
 }

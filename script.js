@@ -59,13 +59,13 @@ if (opsamlingPlaceholder) {
 
   // Variation 1: pass-type efter formål
   if (purpose === "techno") {
-    typeEl.textContent = "Your experience";
+    typeEl.textContent = "Personal Event Pass";
     purposeEl.textContent = "You're here for the music. Amazing! We have a 24 hour line-up of 6 different DJs. You can check who is playing when on the DJ timetable.";
   } else if (purpose === "tattoos") {
-    typeEl.textContent = "Tattoo pass";
+    typeEl.textContent = "Personal Event Pass";
     purposeEl.textContent = "You're here for the ink. Exciting! The different tattoo artists are available for you from 10 AM until 10 PM on the 10th.";
   } else {
-    typeEl.textContent = "Full experience pass";
+    typeEl.textContent = "Personal Event Pass";
     purposeEl.textContent = "You're here for both techno and tattoos. Great! We have 24 hour line-up of 6 different DJs. And the different tattoo artists are available for you from 10 AM until 10 PM on the 10th.   ";
   }
 
@@ -83,7 +83,7 @@ if (opsamlingPlaceholder) {
     "old school": "Ars · Old School ",
     "neo traditionel": "Nastia · Neo Traditional",
     abstract: "Poli · Abstract",
-    "dont-know": "Meet all the artists",
+    "dont-know": "See all the artists and their styles on the Home page. ",
   };
   styleEl.textContent = stilTekster[style] || stilTekster["dont-know"];
 
